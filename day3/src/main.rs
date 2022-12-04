@@ -16,58 +16,12 @@ fn main() {
     }
 
     let mut priority_values: HashMap<char, usize> = HashMap::new();
-    priority_values.insert('a', 1); 
-    priority_values.insert('b', 2);
-    priority_values.insert('c', 3);
-    priority_values.insert('d', 4);
-    priority_values.insert('e', 5);
-    priority_values.insert('f', 6);
-    priority_values.insert('g', 7);
-    priority_values.insert('h', 8);
-    priority_values.insert('i', 9);
-    priority_values.insert('j', 10); 
-    priority_values.insert('k', 11);
-    priority_values.insert('l', 12);
-    priority_values.insert('m', 13);
-    priority_values.insert('n', 14);
-    priority_values.insert('o', 15);
-    priority_values.insert('p', 16);
-    priority_values.insert('q', 17);
-    priority_values.insert('r', 18);
-    priority_values.insert('s', 19);
-    priority_values.insert('t', 20);
-    priority_values.insert('u', 21);
-    priority_values.insert('v', 22);
-    priority_values.insert('w', 23);
-    priority_values.insert('x', 24);
-    priority_values.insert('y', 25);
-    priority_values.insert('z', 26);
-    priority_values.insert('A', 27);
-    priority_values.insert('B', 28);
-    priority_values.insert('C', 29);
-    priority_values.insert('D', 30);
-    priority_values.insert('E', 31);
-    priority_values.insert('F', 32);
-    priority_values.insert('G', 33);
-    priority_values.insert('H', 34);
-    priority_values.insert('I', 35);
-    priority_values.insert('J', 36);
-    priority_values.insert('K', 37);
-    priority_values.insert('L', 38);
-    priority_values.insert('M', 39);
-    priority_values.insert('N', 40);
-    priority_values.insert('O', 41);
-    priority_values.insert('P', 42);
-    priority_values.insert('Q', 43);
-    priority_values.insert('R', 44);
-    priority_values.insert('S', 45);
-    priority_values.insert('T', 46);
-    priority_values.insert('U', 47);
-    priority_values.insert('V', 48);
-    priority_values.insert('W', 49);
-    priority_values.insert('X', 50);
-    priority_values.insert('Y', 51);
-    priority_values.insert('Z', 52);
+    for i in 0..26 {
+        let lower_letter = char::from_u32('a' as u32 + i).unwrap();
+        let upper_letter = lower_letter.to_ascii_uppercase();
+        priority_values.insert(lower_letter, (i + 1) as usize);
+        priority_values.insert(upper_letter, (i + 27) as usize);
+    }
 
     let file_name = &args[1];
     let file = File::open(file_name).unwrap(); // ignore errors from Result type
